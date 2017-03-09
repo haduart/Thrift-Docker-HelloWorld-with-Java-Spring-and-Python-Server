@@ -1,0 +1,19 @@
+Starting the Python Thrift Server
+
+cd python-server-thrift/
+source bin/activate
+python PythonServer.py
+
+
+Starting the Java Thrift Client, that is at the same time a REST Server.
+cd java-client-thrift/
+mvn clean install
+mvn spring-boot:run
+
+
+Testing it.
+
+curl http://localhost:8080/hello
+
+Java REST server is listening on port 8080, starts a thrift client and connects to the thirft server at port 9090.
+

@@ -1,0 +1,11 @@
+*.iml
+.idea
+*.pdf
+*.DS_Store
+*.pyc
+/__pycache__
+html_env
+bin/
+include/
+lib/
+pip-selfcheck.json
