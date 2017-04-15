@@ -40,3 +40,12 @@ docker-compose down
 And if you want to delete them completely
 docker-compose down --rmi all --volumes
 
+
+Working with Maven Docker Plugin
+cd python-thrift-server/
+docker run -p 9090:9090 --name python-thrift-server -d python-thrift-server:latest
+cd ../
+
+cd java-client-thrift/
+mvn docker:build
+docker run -d  -p 8080:8080 --name java-test-client -e PYTHON_THRIFT_PORT=9090 java-test-client:latest
