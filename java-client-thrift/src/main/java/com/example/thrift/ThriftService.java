@@ -10,6 +10,7 @@ import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.apache.thrift.transport.TTransportException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -21,8 +22,16 @@ import java.util.List;
 @Component
 public class ThriftService {
 
+
+    @Value("${thrift.server}")
+    private String thriftServer;
+
+    @Value("${thrift.port}")
+    private String thriftPort;
+
     public String execute() {
-        TTransport transport = new TSocket("localhost", 9090);
+        Integer thriftPortNumber = Integer.parseInt(this.thriftPort);
+        TTransport transport = new TSocket(thriftServer, thriftPortNumber);
         try {
             transport.open();
 
