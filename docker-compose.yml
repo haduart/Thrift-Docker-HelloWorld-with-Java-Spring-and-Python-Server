@@ -1,12 +1,12 @@
 version: "2"
 
 services:
-  python:
+  python-thrift-server:
     build: ./python-server-thrift
     ports:
       - "9090:9090"
 
-  java:
+  java-test-client:
     build: ./java-client-thrift
     ports:
       - "8080:8080"
