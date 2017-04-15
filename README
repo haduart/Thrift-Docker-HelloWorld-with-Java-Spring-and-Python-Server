@@ -1,3 +1,5 @@
+Working on localhost
+
 Starting the Python Thrift Server
 
 cd python-server-thrift/
@@ -16,4 +18,25 @@ Testing it.
 curl http://localhost:8080/hello
 
 Java REST server is listening on port 8080, starts a thrift client and connects to the thirft server at port 9090.
+
+
+Working with Docker-Compose
+
+First Compiling the Java Client
+
+cd java-client-thrift/
+mvn clean install
+
+Then using the docker-compose commands.
+
+cd ../
+
+docker-compose up -d
+docker-compose ps
+docker-compose logs -f
+
+If you want to stop them
+docker-compose down
+And if you want to delete them completely
+docker-compose down --rmi all --volumes
 

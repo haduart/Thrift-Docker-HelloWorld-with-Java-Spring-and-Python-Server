@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  python:
+    build: ./python-server-thrift
+    ports:
+      - "9090:9090"
+
+  java:
+    build: ./java-client-thrift
+    ports:
+      - "8080:8080"
+    depends_on:
+      - python
+    environment:
+      - PYTHON_THRIFT_SERVER=python
+      - PYTHON_THRIFT_PORT=9090
